@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
+from pydantic import BaseModel, Field, model_validator
+from typing import Literal
 import pandas as pd
 import joblib
 from contextlib import asynccontextmanager
@@ -24,17 +25,25 @@ app = FastAPI(lifespan=lifespan)
 
 #The only columns that user will see and provide inputs.
 class LoanApplication(BaseModel): #Pydantic Model (Validation)
-    person_age: int
-    person_income: float
-    person_home_ownership: str
-    person_emp_length: float
-    loan_intent: str
-    loan_grade: str
-    loan_amnt: float
-    loan_int_rate: float
-    loan_percent_income: float
-    cb_person_default_on_file: str
-    cb_person_cred_hist_length: int
+    # Bounds reject impossible inputs only (same rules as the web form); values outside the
+    # training range but still possible are accepted, and categories are the training categories.
+    person_age: int = Field(ge=18, le=100)
+    person_income: float = Field(gt=0)
+    person_home_ownership: Literal["MORTGAGE", "OTHER", "OWN", "RENT"]
+    person_emp_length: float = Field(ge=0, le=60)
+    loan_intent: Literal["DEBTCONSOLIDATION", "EDUCATION", "HOMEIMPROVEMENT", "MEDICAL", "PERSONAL", "VENTURE"]
+    loan_grade: Literal["A", "B", "C", "D", "E", "F", "G"]
+    loan_amnt: float = Field(gt=0)
+    loan_int_rate: float = Field(gt=0, le=100)
+    loan_percent_income: float = Field(ge=0, le=10)
+    cb_person_default_on_file: Literal["N", "Y"]
+    cb_person_cred_hist_length: int = Field(ge=0, le=80)
+
+    @model_validator(mode="after")
+    def emp_length_within_age(self):
+        if self.person_emp_length > self.person_age:
+            raise ValueError("person_emp_length cannot exceed person_age")
+        return self
 
 
 
