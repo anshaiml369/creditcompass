@@ -1,0 +1,133 @@
+{
+  "features": {
+    "person_age": {
+      "type": "number",
+      "min": 20.0,
+      "max": 94.0,
+      "p01": 21.0,
+      "p50": 26.0,
+      "p99": 50.0,
+      "missing_in_raw": 0
+    },
+    "person_income": {
+      "type": "number",
+      "min": 4000.0,
+      "max": 2039784.0,
+      "p01": 14400.0,
+      "p50": 56000.0,
+      "p99": 227500.0,
+      "missing_in_raw": 0
+    },
+    "person_home_ownership": {
+      "type": "category",
+      "values": [
+        "MORTGAGE",
+        "OTHER",
+        "OWN",
+        "RENT"
+      ],
+      "counts": {
+        "RENT": 16007,
+        "MORTGAGE": 13018,
+        "OWN": 2391,
+        "OTHER": 106
+      }
+    },
+    "person_emp_length": {
+      "type": "number",
+      "min": 0.0,
+      "max": 41.0,
+      "p01": 0.0,
+      "p50": 4.0,
+      "p99": 18.0,
+      "missing_in_raw": 895
+    },
+    "loan_intent": {
+      "type": "category",
+      "values": [
+        "DEBTCONSOLIDATION",
+        "EDUCATION",
+        "HOMEIMPROVEMENT",
+        "MEDICAL",
+        "PERSONAL",
+        "VENTURE"
+      ],
+      "counts": {
+        "EDUCATION": 6246,
+        "MEDICAL": 5869,
+        "VENTURE": 5518,
+        "PERSONAL": 5346,
+        "DEBTCONSOLIDATION": 5044,
+        "HOMEIMPROVEMENT": 3499
+      }
+    },
+    "loan_grade": {
+      "type": "category",
+      "values": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G"
+      ],
+      "counts": {
+        "A": 10300,
+        "B": 10121,
+        "C": 6301,
+        "D": 3549,
+        "E": 951,
+        "F": 236,
+        "G": 64
+      }
+    },
+    "loan_amnt": {
+      "type": "number",
+      "min": 500.0,
+      "max": 35000.0,
+      "p01": 1200.0,
+      "p50": 8000.0,
+      "p99": 30000.0,
+      "missing_in_raw": 0
+    },
+    "loan_int_rate": {
+      "type": "number",
+      "min": 5.42,
+      "max": 23.22,
+      "p01": 5.42,
+      "p50": 10.99,
+      "p99": 18.62,
+      "missing_in_raw": 3116
+    },
+    "loan_percent_income": {
+      "type": "number",
+      "min": 0.0,
+      "max": 0.83,
+      "p01": 0.02,
+      "p50": 0.15,
+      "p99": 0.4979000000000087,
+      "missing_in_raw": 0
+    },
+    "cb_person_default_on_file": {
+      "type": "category",
+      "values": [
+        "N",
+        "Y"
+      ],
+      "counts": {
+        "N": 25908,
+        "Y": 5614
+      }
+    },
+    "cb_person_cred_hist_length": {
+      "type": "number",
+      "min": 2.0,
+      "max": 30.0,
+      "p01": 2.0,
+      "p50": 4.0,
+      "p99": 17.0,
+      "missing_in_raw": 0
+    }
+  }
+}
