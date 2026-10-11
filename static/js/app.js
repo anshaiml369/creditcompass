@@ -1,4 +1,4 @@
-/* Credit Default Model — frontend logic. Talks to main.py: POST /predict (unchanged API). */
+/* CreditCompass — frontend logic. Talks to main.py: POST /predict (unchanged API). */
 (function () {
   "use strict";
   const { $, $$, el, api, fmt, renderBars, plotXY, legend, setBusy, setStatus, callout, toast, copyText } = window.RUI;

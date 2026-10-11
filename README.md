@@ -1,4 +1,4 @@
-# Credit default model — calibrated XGBoost
+# CreditCompass — calibrated XGBoost loan-default model
 
 A portfolio project that began from a YouTube tutorial and was extended with a research interface, held-out re-evaluation of the shipped model, threshold and calibration analysis, a sensitivity tool and documented limitations. In short: an XGBoost pipeline, tuned with randomized search and wrapped in sigmoid
 calibration, that estimates the probability that a loan in a public credit-risk dataset defaults. It is served by
